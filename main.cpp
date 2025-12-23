@@ -12,6 +12,6 @@ int main() {
     yyparse();
 
     // Print the AST using the PrintVisitor
-    SemanticParser::SemanticParser visitor;
+    SemanticParser visitor;
     program->accept(visitor);
 }
