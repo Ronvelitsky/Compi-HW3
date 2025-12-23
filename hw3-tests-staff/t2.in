@@ -1,0 +1,10 @@
+void main() {
+    bool c = true;
+    if (not c) {
+        int x = return6();
+        printi(x);
+        x = (int) e;
+    }
+    else
+        syntax error;
+}
