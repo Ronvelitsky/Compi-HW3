@@ -7,7 +7,7 @@
 #include "nodes.hpp"
 
 
-class SemanticParser : Visitor{
+class SemanticParser : public Visitor{
 private:
     std::vector<std::string> indents;
     std::vector<std::string> prefixes;
