@@ -1,0 +1,7 @@
+void main() {
+    helper(5, true);
+}
+
+void helper(int x, int y) {
+    int z = x + y;
+}

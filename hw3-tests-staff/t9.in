@@ -1,0 +1,10 @@
+void main() {
+    int a = 5;
+    if (a > 3) {
+        int b = 10;
+    }
+    while (a < 20) {
+        int c = 15;
+        a = a + 1;
+    }
+}

@@ -96,7 +96,7 @@ mv * ../
 cd ..
 
 #	number of tests: 
-numtests=2 
+numtests=20 
 #	command to execute test: 
 command="./hw3 < t\$i.in >& t\$i.res"
 i="1" 
