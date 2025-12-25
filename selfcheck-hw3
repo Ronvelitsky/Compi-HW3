@@ -95,8 +95,17 @@ cd compi_hw3_tests_supplied
 mv * ../
 cd ..
 
-#	number of tests: 
-numtests=20 
+# Auto-detect number of tests by counting .in files
+numtests=$(ls -1 t*.in 2>/dev/null | wc -l)
+
+if [ $numtests -eq 0 ]
+	then
+	echo "No test files found!"
+	exit
+fi
+
+echo "Running $numtests tests..."
+
 #	command to execute test: 
 command="./hw3 < t\$i.in >& t\$i.res"
 i="1" 
@@ -110,6 +119,7 @@ while [ $i -le $numtests ]
 			echo "Failed test #"$i"!" 
 			exit 
 		fi 
+		echo "Test #"$i" passed"
 		i=$[$i+1] 
 done 
 
