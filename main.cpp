@@ -14,5 +14,6 @@ int main() {
     // Print the AST using the PrintVisitor
     SemanticParser visitor;
     program->accept(visitor);
+    visitor.print();
     return 0;
 }
