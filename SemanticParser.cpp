@@ -347,10 +347,14 @@ void SemanticParser::visit(ast::If &node) {
         output::errorMismatch(node.line);
     }
 
-    visitStatementPossiblyBlock(node.then, /*forceScopeForSingleStmt=*/true);
+    pushScope();
+    visitStatementPossiblyBlock(node.then, false);
+    popScope();
 
     if (node.otherwise) {
-        visitStatementPossiblyBlock(node.otherwise, /*forceScopeForSingleStmt=*/true);
+        pushScope();
+        visitStatementPossiblyBlock(node.otherwise, false);
+        popScope();
     }
 }
 
@@ -362,9 +366,11 @@ void SemanticParser::visit(ast::While &node) {
         output::errorMismatch(node.line);
     }
 
+    pushScope();
     whileDepth++;
-    visitStatementPossiblyBlock(node.body, /*forceScopeForSingleStmt=*/true);
+    visitStatementPossiblyBlock(node.body, false);
     whileDepth--;
+    popScope();
 }
 
 
