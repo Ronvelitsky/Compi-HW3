@@ -431,15 +431,7 @@ void SemanticParser::visit(ast::RelOp &node) {
     node.right->accept(*this);
     BuiltInType r = lastType;
 
-    // Typical rule: numeric comparisons allowed; string/bool only for ==/!= (adjust if needed)
-    bool isEqNe = (node.op == ast::RelOpType::EQ || node.op == ast::RelOpType::NE);
-
     if (isNumeric(l) && isNumeric(r)) {
-        lastType = BuiltInType::BOOL;
-        return;
-    }
-
-    if (isEqNe && l == r && (isBool(l) || isString(l))) {
         lastType = BuiltInType::BOOL;
         return;
     }
