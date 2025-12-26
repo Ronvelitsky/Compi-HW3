@@ -104,10 +104,12 @@ FormalDecl: Type ID
     ); }
 ;
 
-Statements:
-      /* empty */
+Statements: Statement
     {
-        $$ = std::make_shared<ast::Statements>();
+        auto list = std::make_shared<ast::Statements>();
+        auto s = std::dynamic_pointer_cast<ast::Statement>($1);
+        list->push_back(s);
+        $$ = list;
     }
     | Statements Statement
     {
