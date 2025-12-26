@@ -1,0 +1,13 @@
+void main() {
+    int result = calculate(10, 20b);
+    printi(result);
+}
+
+int calculate(int a, byte b) {
+    int sum = a + (int) b;
+    if (sum > 25) {
+        int doubled = sum * 2;
+        return doubled;
+    }
+    return sum;
+}

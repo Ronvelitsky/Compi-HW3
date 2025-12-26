@@ -1,0 +1,8 @@
+void main() {
+    int x = helper(5);
+    printi(x);
+}
+
+int helper(int n) {
+    return n + 10;
+}
