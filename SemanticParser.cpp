@@ -18,11 +18,16 @@ SemanticParser::SemanticParser() {
 void SemanticParser::pushScope() {
     scopes.push_back({});
     printer.beginScope();
+    scopeOffsetStack.push_back(nextLocalOffset);
 }
 
 void SemanticParser::popScope() {
     printer.endScope();
     scopes.pop_back();
+    if (!scopeOffsetStack.empty()) {
+        nextLocalOffset = scopeOffsetStack.back();
+        scopeOffsetStack.pop_back();
+    }
 }
 
 bool SemanticParser::existsInAnyScope(const std::string& name) const {
@@ -44,9 +49,8 @@ bool SemanticParser::existsInCurrentScope(const std::string& name) const {
     return scopes.back().find(name) != scopes.back().end();
 }
 
-
 void SemanticParser::insertVar(const std::string& name, BuiltInType type, int offset, int lineno) {
-    if (existsInCurrentScope(name)) {
+    if (existsInAnyScope(name)) {
         output::errorDef(lineno, name);
     }
     SymbolEntry e;
@@ -123,7 +127,7 @@ void SemanticParser::visit(ast::Funcs &node) {
             params.push_back(p->type->type);
         }
         BuiltInType ret = f->return_type->type;
-        insertFunc(fname, ret, params, f->line);
+        insertFunc(fname, ret, params, f->id->line);
     }
 
     // main check (after prototypes exist)
@@ -224,7 +228,7 @@ void SemanticParser::visit(ast::VarDecl &node) {
 
     // insert first (so init can refer? depends on spec; usually init can refer to earlier vars, not itself)
     int off = nextLocalOffset++;
-    insertVar(name, t, off, node.line);
+    insertVar(name, t, off, node.id->line);
 
     if (node.init_exp) {
         node.init_exp->accept(*this);
@@ -344,7 +348,7 @@ void SemanticParser::visit(ast::Return &node) {
 void SemanticParser::visit(ast::If &node) {
     node.condition->accept(*this);
     if (lastType != BuiltInType::BOOL) {
-        output::errorMismatch(node.line);
+        output::errorMismatch(node.condition->line);
     }
 
     pushScope();
@@ -358,12 +362,10 @@ void SemanticParser::visit(ast::If &node) {
     }
 }
 
-
-
 void SemanticParser::visit(ast::While &node) {
     node.condition->accept(*this);
     if (lastType != BuiltInType::BOOL) {
-        output::errorMismatch(node.line);
+        output::errorMismatch(node.condition->line);
     }
 
     pushScope();
@@ -372,7 +374,6 @@ void SemanticParser::visit(ast::While &node) {
     whileDepth--;
     popScope();
 }
-
 
 void SemanticParser::visit(ast::Break &node) {
     if (whileDepth <= 0) {

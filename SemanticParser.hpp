@@ -78,6 +78,8 @@ private:
     int nextLocalOffset = 0;   // 0,1,2,...
     int nextParamOffset = -1;  // -1,-2,-3,...
 
+	std::vector<int> scopeOffsetStack;
+
     // Expression type "return channel"
     ast::BuiltInType lastType = ast::BuiltInType::VOID;
 
