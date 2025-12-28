@@ -1,0 +1,5 @@
+void main() {
+    byte x = 5b;
+    byte y = 10b;
+    bool z = x or y;
+}

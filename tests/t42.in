@@ -1,0 +1,6 @@
+void main() {
+    byte b = 10b;
+    int i = 20;
+    int result = b + i;
+    printi(result);
+}

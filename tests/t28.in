@@ -1,0 +1,11 @@
+void foo() {
+	return;
+}
+
+void foo() {
+	return;
+}
+
+void main() {
+	return;
+}

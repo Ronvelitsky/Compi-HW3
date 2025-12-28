@@ -1,0 +1,10 @@
+void nomain() {
+    int x = (4 + 7) * 12;
+    byte y = 100b;
+
+    {
+      byte w;
+    }
+    int w;
+}
+

@@ -1,0 +1,4 @@
+void main() {
+    bool b = true;
+    int x = (int) b;
+}

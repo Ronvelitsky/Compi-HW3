@@ -1,0 +1,14 @@
+void main() {
+    int x = (4 + 7) * 12;
+    while (x < 10) {
+      while (x < 10) {
+        while (x < 10) {
+          while (x < 10) {
+            break;
+          }
+          continue;
+        }        
+      }
+    }
+}
+

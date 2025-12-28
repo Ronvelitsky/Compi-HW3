@@ -1,0 +1,9 @@
+void main() {
+    int x = 5;
+    int y = 10;
+    bool a = true;
+    bool b = false;
+    if ((x > 3 and y < 20) or (a and not b)) {
+        print("complex");
+    }
+}

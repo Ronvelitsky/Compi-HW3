@@ -1,0 +1,7 @@
+void main() {
+    bool c = true;
+    if (not c) {   
+        printi(return6());
+        x = (int) e;
+    }
+}

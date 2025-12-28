@@ -1,0 +1,9 @@
+void main() {
+    int a = 5;
+    if (a > 3) {
+        int b = 10;
+    }
+    if (a < 20) {
+        int c = 15;
+    }
+}

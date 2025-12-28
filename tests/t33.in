@@ -1,0 +1,3 @@
+void main() {
+    int x = nonexistent(5);
+}

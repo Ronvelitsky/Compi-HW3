@@ -1,0 +1,14 @@
+void main() {
+    int x = (4 + 7) * 12;
+    byte y = 100b;
+
+    {
+      { { { { { { { { { bool w; } int z; } int w; } bool w2; } int z; } int w; } int w; } int z; } int w; }
+      byte w;
+      byte z;
+    }
+    int w;
+    bool z;
+    byte w2;
+}
+

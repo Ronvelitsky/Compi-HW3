@@ -1,0 +1,6 @@
+void main() {
+    int x = 5;
+    if (not x) {
+        print("error");
+    }
+}

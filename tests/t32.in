@@ -1,0 +1,7 @@
+void main() {
+    helper(5, 10, 15);
+}
+
+void helper(int x, int y) {
+    printi(x + y);
+}

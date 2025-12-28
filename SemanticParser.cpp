@@ -293,11 +293,11 @@ void SemanticParser::visit(ast::Call &node) {
         for (auto pt : e->paramTypes) {
             // convert using same mapping as output.cpp
             switch (pt) {
-                case BuiltInType::INT: expectedStr.push_back("int"); break;
-                case BuiltInType::BYTE: expectedStr.push_back("byte"); break;
-                case BuiltInType::BOOL: expectedStr.push_back("bool"); break;
-                case BuiltInType::STRING: expectedStr.push_back("string"); break;
-                case BuiltInType::VOID: expectedStr.push_back("void"); break;
+                case BuiltInType::INT: expectedStr.push_back("INT"); break;
+                case BuiltInType::BYTE: expectedStr.push_back("BYTE"); break;
+                case BuiltInType::BOOL: expectedStr.push_back("BOOL"); break;
+                case BuiltInType::STRING: expectedStr.push_back("STRING"); break;
+                case BuiltInType::VOID: expectedStr.push_back("VOID"); break;
             }
         }
         output::errorPrototypeMismatch(node.line, e->name, expectedStr);
@@ -310,11 +310,11 @@ void SemanticParser::visit(ast::Call &node) {
             expectedStr.reserve(e->paramTypes.size());
             for (auto pt : e->paramTypes) {
                 switch (pt) {
-                    case BuiltInType::INT: expectedStr.push_back("int"); break;
-                    case BuiltInType::BYTE: expectedStr.push_back("byte"); break;
-                    case BuiltInType::BOOL: expectedStr.push_back("bool"); break;
-                    case BuiltInType::STRING: expectedStr.push_back("string"); break;
-                    case BuiltInType::VOID: expectedStr.push_back("void"); break;
+                    case BuiltInType::INT: expectedStr.push_back("INT"); break;
+                    case BuiltInType::BYTE: expectedStr.push_back("BYTE"); break;
+                    case BuiltInType::BOOL: expectedStr.push_back("BOOL"); break;
+                    case BuiltInType::STRING: expectedStr.push_back("STRING"); break;
+                    case BuiltInType::VOID: expectedStr.push_back("VOID"); break;
                 }
             }
             output::errorPrototypeMismatch(node.line, e->name, expectedStr);

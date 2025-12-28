@@ -1,0 +1,14 @@
+void main() {
+    bool c =
+      true and
+      return6;
+}
+
+void return6 () {
+  return 6;
+}
+
+
+void foo (int x, bool y) {
+  return 6;
+}

@@ -1,0 +1,19 @@
+void main() {
+    bool c = true;
+    if (not c) {   
+        foo(
+        return6(),
+        c
+        );
+        x = (int) e;
+    }
+}
+
+void return6 () {
+  return 6;
+}
+
+
+void foo (int x, bool y) {
+  return 6;
+}

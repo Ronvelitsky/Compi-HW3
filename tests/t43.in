@@ -1,0 +1,5 @@
+void main() {
+    byte b1 = 10b;
+    int i = 20;
+    byte b2 = b1 + i;
+}

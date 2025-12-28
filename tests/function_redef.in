@@ -1,0 +1,11 @@
+int foo(int x, bool y) {
+  if (y) return x;
+}
+
+void main() {
+  return;
+}
+
+void foo() {
+  if (3 == 4) return;
+}

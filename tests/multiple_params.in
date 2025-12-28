@@ -1,0 +1,13 @@
+void main() {
+    int x = foo(10, 1, 200b, true);
+}
+
+int foo(int x, int y, byte z, bool w)
+{
+  if(w) return x + z;
+  else  return x - z;
+  
+  while(w and w or not w) {
+    foo(x + 4000, 200b, (byte)180, 3 == 3);
+  }
+}

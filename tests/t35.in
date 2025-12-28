@@ -1,0 +1,8 @@
+void main() {
+    int x = 50;
+    helper(x);
+}
+
+void helper(byte b) {
+    printi(b);
+}

@@ -1,0 +1,10 @@
+void main() {
+    int x = (4 + 7) * 12;
+    byte y = 100b;
+    printOk((x > y) and (x < 100));
+}
+
+// test comment
+void printOk(bool isOk) {
+    break;
+}
