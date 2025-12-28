@@ -53,6 +53,7 @@ void SemanticParser::insertVar(const std::string& name, BuiltInType type, int of
     if (existsInAnyScope(name)) {
         output::errorDef(lineno, name);
     }
+
     SymbolEntry e;
     e.name = name;
     e.isFunc = false;
